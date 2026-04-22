@@ -1,0 +1,46 @@
+{
+    "version": "1.3.1",
+    "codebase": {
+        "task": "Segmentation",
+        "codebase": "mmseg",
+        "version": "1.2.2",
+        "pth": "/home/you7/data/tactile_paving/work_dirs/DP-TOS/best_mIoU_iter_144000.pth",
+        "config": "/home/you7/data/tactile_paving/work_dirs/DP-TOS/20250301_201406/vis_data/config.py"
+    },
+    "codebase_config": {
+        "type": "mmseg",
+        "task": "Segmentation",
+        "with_argmax": true
+    },
+    "onnx_config": {
+        "type": "onnx",
+        "export_params": true,
+        "keep_initializers_as_inputs": false,
+        "opset_version": 11,
+        "save_file": "end2end.onnx",
+        "input_names": [
+            "input"
+        ],
+        "output_names": [
+            "output"
+        ],
+        "input_shape": null,
+        "optimize": true,
+        "dynamic_axes": {
+            "input": {
+                "0": "batch",
+                "2": "height",
+                "3": "width"
+            },
+            "output": {
+                "0": "batch",
+                "2": "height",
+                "3": "width"
+            }
+        }
+    },
+    "backend_config": {
+        "type": "onnxruntime"
+    },
+    "calib_config": {}
+}
